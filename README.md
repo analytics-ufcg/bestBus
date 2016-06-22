@@ -10,5 +10,5 @@ To install this package:
 1. Install the [devtools package](https://cran.r-project.org/web/packages/devtools/devtools.pdf) 
 > install.packages("devtools")
 
-2. Download the bestBus package
+2. Download the bestBus package by [install_github](http://www.inside-r.org/packages/cran/devtools/docs/install_github)
 > devtools::install_github("analytics-ufcg/bestBus")
