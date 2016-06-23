@@ -16,3 +16,9 @@ To install this package:
 
 2. Download the bestBus package by [install_github](http://www.inside-r.org/packages/cran/devtools/docs/install_github)
 > devtools::install_github("analytics-ufcg/bestBus")
+
+To see all the functions and descriptions use the following command:
+> library(help = "bestBus")
+
+To see the detailed description use the following command without quotes:
+> help("function")
