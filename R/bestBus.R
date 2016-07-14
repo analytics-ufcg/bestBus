@@ -1,3 +1,5 @@
+require(lubridate)
+
 # Some useful keyboard shortcuts for package authoring:
 #
 #   Build and Reload Package:  'Ctrl + Shift + B'
@@ -169,12 +171,9 @@ best_length_diff <- function(prev_travel, curr_travel, next_travel, best_travel)
 #' group_minutes("02:17:05", 15)
 #' group_minutes("02:17:05", 20)
 group_minutes <- function(schedule, delimiter) {
-  timesplit <- strsplit(toString(schedule), ":")[[1]]
-  seconds <- as.integer(timesplit[1]) * 3600 + as.integer(timesplit[2]) * 60 + as.integer(timesplit[2])
+  seconds <- period_to_seconds(hms(schedule))
   group <- as.integer(seconds / (delimiter * 60)) * (delimiter * 60)
-  hours <- as.integer(group / 3600)
-  minutes <- as.integer(group %% 3600 / 60)
-  seconds <- as.integer(group %% 3600 %% 60)
-  return(paste(sprintf("%02d", hours), sprintf("%02d", minutes), sprintf("%02d", seconds), sep = ":"))
+  grouped.timetable <- as_date(seconds_to_period(group))
+  return(format(grouped.timetable, format="%H:%M:%S"))
 }
 
